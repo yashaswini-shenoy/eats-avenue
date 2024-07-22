@@ -1,5 +1,6 @@
 # Getting Started with Create React App
 
+This website is built with an intention of having a single stop for all your food requirements
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
