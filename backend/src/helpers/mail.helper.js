@@ -1,17 +1,17 @@
-import { getClient } from '../config/mail.config.js';
+import { getClient } from "../config/mail.config.js";
 
 export const sendEmailReceipt = function (order) {
   const mailClient = getClient();
 
   mailClient.messages
-    .create('sandbox80bf0ab584cb42dbbf5cf0e9a249e188.mailgun.org', {
-      from: 'orders@foodmine.com',
+    .create("sandbox80bf0ab584cb42dbbf5cf0e9a249e188.mailgun.org", {
+      from: "orders@eatsavenue.com",
       to: order.user.email,
       subject: `Order ${order.id} is being processed`,
       html: getReceiptHtml(order),
     })
-    .then(msg => console.log(msg)) //success
-    .catch(err => console.log(err)); //fail;
+    .then((msg) => console.log(msg)) //success
+    .catch((err) => console.log(err)); //fail;
 };
 
 const getReceiptHtml = function (order) {
@@ -40,7 +40,7 @@ const getReceiptHtml = function (order) {
       <p><strong>Tracking ID:</strong> ${order.id}</p>
       <p><strong>Order Date:</strong> ${order.createdAt
         .toISOString()
-        .replace('T', ' ')
+        .replace("T", " ")
         .substr(0, 16)}</p>
         <h2>Order Details</h2>
         <table>
@@ -55,7 +55,7 @@ const getReceiptHtml = function (order) {
         <tbody>
         ${order.items
           .map(
-            item =>
+            (item) =>
               `
             <tr>
             <td>${item.food.name}</td>
@@ -65,7 +65,7 @@ const getReceiptHtml = function (order) {
             </tr>
             `
           )
-          .join('\n')}
+          .join("\n")}
           </tbody>
           <tfoot>
           <tr>
