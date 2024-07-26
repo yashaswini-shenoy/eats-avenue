@@ -15,7 +15,7 @@ export default function PaypalButtons({ order }) {
     <PayPalScriptProvider
       options={{
         clientId:
-          "AUWcnaHjOUoXVI3IjLpMkM0Kk0Sigq1CUAWP-finHI950yQD2Qni8XPkRbs76Q-_JIT8hJFhKD8YVy3u",
+          "AfvpCQBpcNWm-_ydt5Soy9wqcJwO3LS8Qvdv0nTRmUPwMKJuUwB1LA_vtCduSYCohHJFw9CSUCEaH7r3",
       }}
     >
       <Buttons order={order} />
@@ -37,7 +37,7 @@ function Buttons({ order }) {
       purchase_units: [
         {
           amount: {
-            currency_code: "INR",
+            currency_code: "USD",
             value: order.totalPrice,
           },
         },
@@ -58,7 +58,8 @@ function Buttons({ order }) {
   };
 
   const onError = (err) => {
-    toast.error("Payment Failed", "Error");
+    console.log(err, "heyy");
+    // toast.error("Payment Failed", "Error");
   };
 
   return (
